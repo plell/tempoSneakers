@@ -31,7 +31,7 @@ transition: all 0.15s;
 &:hover{
 	z-index:80px;
 	transform:${(p)=>!p.card?'scale(1.18)':null};
-	background:${(p) => p.controlCard ? 'url(/static/images/'+ p.controlCard.img + '/)' : null};
+	background:${(p) => p.controlCard ? 'url(/static/img/'+ p.controlCard.img + '/)' : null};
 	opacity:${(p)=>!p.card?0.4:null};
 	background-size:cover;
 	background-repeat: no-repeat;

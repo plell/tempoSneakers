@@ -41,7 +41,7 @@ color:#f4f4f4;
 const BuffIcon = styled.div`
 display:inline-block;
 margin:5px;
-background:${p=>p.img ? 'url(/static/images/pow/' + p.img + '/)' : null};
+background:${p=>p.img ? 'url(/static/img/pow/' + p.img + '/)' : null};
 width:30px;
 height:30px;
 background-size:cover;

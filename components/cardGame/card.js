@@ -71,7 +71,7 @@ transform: ${(p)=>p.inGame ? `rotate(${p.index < 3 ? -20 + p.index*5 : p.index*5
 	transform: ${(p)=>p.inGame && !p.selected ? 'translateY(-30px)' : !p.inGame ? 'scale(1.18)' : null};
 	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); 
 };
-background:${(p)=>p.card ? 'url(/static/images/'+ p.card.img + '/)' : null};
+background:${(p)=>p.card ? 'url(/static/img/'+ p.card.img + '/)' : null};
 background-size:cover;
 background-repeat: no-repeat;
 box-shadow: ${(p)=>p.inGame && p.selected ? '0 15px 20px rgba(0, 0, 0, 0.3)':null}; 

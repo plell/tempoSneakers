@@ -32,7 +32,7 @@ render(){
 const Portrait = styled.div`
 position:absolute;
 margin:auto;
-background:${(p)=>p.card ? 'url(/static/images/'+ p.card.img + '/)' : null};
+background:${(p)=>p.card ? 'url(/static/img/'+ p.card.img + '/)' : null};
 background-size:cover;
 border: ${(p)=>p.card && p.card.poss === 1 ? '4px solid blue' : p.card && p.card.poss === 0 ? '4px solid orange' : null}
 border-radius:4px;

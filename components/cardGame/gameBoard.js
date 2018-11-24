@@ -151,7 +151,7 @@ const Board = styled.div`
 margin:30px;
 width:380px;
 height:330px;
-background:url(/static/images/timber.jpg/);
+background:url(/static/img/timber.jpg/);
 background-size:cover;
 border:1px solid #666;
 border-radius:4px;
