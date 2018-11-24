@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -104,71 +104,72 @@ module.exports = require("react");
 module.exports = require("styled-components");
 
 /***/ }),
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
 
 /***/ }),
-/* 3 */
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-logger");
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = require("antd");
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-redux");
 
 /***/ }),
-/* 7 */
+/* 9 */,
+/* 10 */,
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(20);
+module.exports = __webpack_require__(21);
 
 
 /***/ }),
-/* 8 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/integration/react");
 
 /***/ }),
-/* 9 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist");
 
 /***/ }),
-/* 10 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-persist/lib/storage");
 
 /***/ }),
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
 /* 15 */,
 /* 16 */,
 /* 17 */,
 /* 18 */,
 /* 19 */,
-/* 20 */
+/* 20 */,
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -179,20 +180,20 @@ var external_react_ = __webpack_require__(0);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
 
 // EXTERNAL MODULE: external "redux-persist/integration/react"
-var react_ = __webpack_require__(8);
+var react_ = __webpack_require__(12);
 
 // EXTERNAL MODULE: external "redux"
-var external_redux_ = __webpack_require__(2);
+var external_redux_ = __webpack_require__(3);
 
 // EXTERNAL MODULE: external "redux-persist"
-var external_redux_persist_ = __webpack_require__(9);
+var external_redux_persist_ = __webpack_require__(13);
 
 // EXTERNAL MODULE: external "redux-thunk"
-var external_redux_thunk_ = __webpack_require__(3);
+var external_redux_thunk_ = __webpack_require__(5);
 var external_redux_thunk_default = /*#__PURE__*/__webpack_require__.n(external_redux_thunk_);
 
 // EXTERNAL MODULE: external "redux-persist/lib/storage"
-var storage_ = __webpack_require__(10);
+var storage_ = __webpack_require__(14);
 
 // CONCATENATED MODULE: ./redux/actions/types.js
 var SET_HAND = 'SET_HAND';
@@ -235,7 +236,7 @@ function mainReducer() {
   main: mainReducer
 }));
 // EXTERNAL MODULE: external "redux-logger"
-var external_redux_logger_ = __webpack_require__(4);
+var external_redux_logger_ = __webpack_require__(6);
 
 // CONCATENATED MODULE: ./redux/store.js
 
@@ -636,7 +637,7 @@ var cardSlot_Edge = external_styled_components_default.a.div(cardSlot_templateOb
   return !p.card ? 0.4 : null;
 });
 // EXTERNAL MODULE: external "antd"
-var external_antd_ = __webpack_require__(5);
+var external_antd_ = __webpack_require__(7);
 
 // CONCATENATED MODULE: ./components/cardGame/console.js
 function _templateObject8() {
@@ -1668,7 +1669,7 @@ function (_Component) {
 
 
 // EXTERNAL MODULE: external "react-redux"
-var external_react_redux_ = __webpack_require__(6);
+var external_react_redux_ = __webpack_require__(8);
 
 // CONCATENATED MODULE: ./pages/index.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return pages_default; });

@@ -1,15 +1,15 @@
 {
   "name": "my-app",
+  "version": "0.0.0",
+  "author": "davidplell",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
-    "next": "^7.0.2",
     "antd": "^3.10.8",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
