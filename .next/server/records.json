@@ -1,0 +1,65 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "external \"react\"": 0,
+      "external \"styled-components\"": 1,
+      "external \"redux\"": 2,
+      "external \"redux-thunk\"": 3,
+      "external \"redux-logger\"": 4,
+      "external \"antd\"": 5,
+      "external \"react-redux\"": 6,
+      "multi ./pages/index.js": 7,
+      "external \"redux-persist/integration/react\"": 8,
+      "external \"redux-persist\"": 9,
+      "external \"redux-persist/lib/storage\"": 10,
+      "multi node_modules/next/dist/pages/_app.js": 11,
+      "node_modules/next/dist/pages/_app.js": 12,
+      "external \"next/app\"": 13,
+      "multi node_modules/next/dist/pages/_error.js": 14,
+      "node_modules/next/dist/pages/_error.js": 15,
+      "external \"next/error\"": 16,
+      "multi node_modules/next/dist/pages/_document.js": 17,
+      "node_modules/next/dist/pages/_document.js": 18,
+      "external \"next/document\"": 19,
+      "node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!pages/index.js 89c02716b4645b64d73633ae902db4f4": 20
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18,
+      "19": 19,
+      "20": 20
+    }
+  },
+  "chunks": {
+    "byName": {
+      "static/MjrVD3LpJk6iXFH7GbJ8w/pages/index.js": 0,
+      "static/MjrVD3LpJk6iXFH7GbJ8w/pages/_app.js": 1,
+      "static/MjrVD3LpJk6iXFH7GbJ8w/pages/_error.js": 2,
+      "static/MjrVD3LpJk6iXFH7GbJ8w/pages/_document.js": 3
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      2,
+      3
+    ]
+  }
+}
