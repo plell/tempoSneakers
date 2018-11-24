@@ -289,7 +289,6 @@ function (_Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          unplayed = _this$props.unplayed,
           inGame = _this$props.inGame,
           card = _this$props.card,
           setHoverCard = _this$props.setHoverCard,
