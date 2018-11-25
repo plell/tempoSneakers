@@ -2,20 +2,9 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 
 export default class PlayedCard extends Component {
-constructor(props){
-	super(props)
-}
-
-componentWillReceiveProps(){
-	console.log("update")
-}
-
-shouldComponentUpdate(nextProps, nextState){
-	console.log("shouldupdate",nextProps)
-}
 
 render(){
-	const {unplayed,inGame,card,index,toggleCard,setControlCard,selected} = this.props
+	const {card} = this.props
 	return(
 		<Portrait card={card}>
 			<Stats>

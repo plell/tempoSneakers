@@ -59,7 +59,7 @@ const Image = styled.div`
 width:200px;
 height:200px;
 opacity:0.4;
-background:${(p)=> p.image ? 'url(/static/images/' + p.image + '/)' : null};
+background:${(p)=> p.image ? 'url(/static/img/' + p.image + '/)' : null};
 background-size:cover;
 background-repeat: no-repeat;
 `

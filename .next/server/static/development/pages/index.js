@@ -106,6 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _cardGame_gameWindow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cardGame/gameWindow */ "./components/cardGame/gameWindow.js");
+/* harmony import */ var _redux_actions_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/actions/api */ "./redux/actions/api.js");
 var _jsxFileName = "/Users/davidplell/code/tempoSneakers/components/app.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -131,20 +132,29 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var App =
 /*#__PURE__*/
 function (_Component) {
   _inherits(App, _Component);
 
   function App() {
+    var _this;
+
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
+    _this.state = {
+      timestamp: 'nothing' // subscribeToTimer((err, timestamp) => this.setState({ timestamp }))
+
+    };
+    return _this;
   }
 
   _createClass(App, [{
     key: "render",
     value: function render() {
+      console.log(this.state.timestamp);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: {
           height: '100vh',
@@ -155,13 +165,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 8
+          lineNumber: 19
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cardGame_gameWindow__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, this.props, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 24
         },
         __self: this
       })));
@@ -378,7 +388,7 @@ var Edge = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templat
 }, function (p) {
   return p.inGame && !p.selected ? 'translateY(-30px)' : !p.inGame ? 'scale(1.18)' : null;
 }, function (p) {
-  return p.card ? 'url(/static/images/' + p.card.img + '/)' : null;
+  return p.card ? 'url(/static/img/' + p.card.img + '/)' : null;
 }, function (p) {
   return p.inGame && p.selected ? '0 15px 20px rgba(0, 0, 0, 0.3)' : null;
 }, function (p) {
@@ -694,7 +704,7 @@ function (_Component) {
 var Edge = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject(), function (p) {
   return !p.card ? 'scale(1.18)' : null;
 }, function (p) {
-  return p.controlCard ? 'url(/static/images/' + p.controlCard.img + '/)' : null;
+  return p.controlCard ? 'url(/static/img/' + p.controlCard.img + '/)' : null;
 }, function (p) {
   return !p.card ? 0.4 : null;
 });
@@ -1018,11 +1028,11 @@ function (_Component) {
 
 var Buffs = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject());
 var BuffIcon = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject2(), function (p) {
-  return p.img ? 'url(/static/images/pow/' + p.img + '/)' : null;
+  return p.img ? 'url(/static/img/pow/' + p.img + '/)' : null;
 });
 var Details = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject3());
 var Image = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject4(), function (p) {
-  return p.image ? 'url(/static/images/' + p.image + '/)' : null;
+  return p.image ? 'url(/static/img/' + p.image + '/)' : null;
 });
 var Pocket = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject5());
 var Price = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject6());
@@ -1050,7 +1060,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/davidplell/code/tempoSneakers/components/cardGame/gameBoard.js";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\nmargin:30px;\nwidth:380px;\nheight:330px;\nbackground:url(/static/images/timber.jpg/);\nbackground-size:cover;\nborder:1px solid #666;\nborder-radius:4px;\n"]);
+  var data = _taggedTemplateLiteral(["\nmargin:30px;\nwidth:380px;\nheight:330px;\nbackground:url(/static/img/timber.jpg/);\nbackground-size:cover;\nborder:1px solid #666;\nborder-radius:4px;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1749,68 +1759,51 @@ var PlayedCard =
 function (_Component) {
   _inherits(PlayedCard, _Component);
 
-  function PlayedCard(props) {
+  function PlayedCard() {
     _classCallCheck(this, PlayedCard);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PlayedCard).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(PlayedCard).apply(this, arguments));
   }
 
   _createClass(PlayedCard, [{
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps() {
-      console.log("update");
-    }
-  }, {
-    key: "shouldComponentUpdate",
-    value: function shouldComponentUpdate(nextProps, nextState) {
-      console.log("shouldupdate", nextProps);
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          unplayed = _this$props.unplayed,
-          inGame = _this$props.inGame,
-          card = _this$props.card,
-          index = _this$props.index,
-          toggleCard = _this$props.toggleCard,
-          setControlCard = _this$props.setControlCard,
-          selected = _this$props.selected;
+      var card = this.props.card;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Portrait, {
         card: card,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 9
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Stats, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 10
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Up, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 11
         },
         __self: this
       }, card.u), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Down, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 12
         },
         __self: this
       }, card.d), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Left, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 13
         },
         __self: this
       }, card.l), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Right, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 14
         },
         __self: this
       }, card.r)));
@@ -1822,7 +1815,7 @@ function (_Component) {
 
 
 var Portrait = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject(), function (p) {
-  return p.card ? 'url(/static/images/' + p.card.img + '/)' : null;
+  return p.card ? 'url(/static/img/' + p.card.img + '/)' : null;
 }, function (p) {
   return p.card && p.card.poss === 1 ? '4px solid blue' : p.card && p.card.poss === 0 ? '4px solid orange' : null;
 });
@@ -2073,6 +2066,33 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./redux/actions/api.js":
+/*!******************************!*\
+  !*** ./redux/actions/api.js ***!
+  \******************************/
+/*! exports provided: subscribeToTimer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "subscribeToTimer", function() { return subscribeToTimer; });
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! socket.io-client */ "socket.io-client");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_0__);
+
+var socket = socket_io_client__WEBPACK_IMPORTED_MODULE_0___default()('http://localhost:8000');
+
+function subscribeToTimer(cb) {
+  socket.on('timer', function (timestamp) {
+    return cb(null, timestamp);
+  });
+  socket.emit('subscribeToTimer', 1000);
+  console.log('started');
+}
+
+
+
+/***/ }),
+
 /***/ "./redux/actions/types.js":
 /*!********************************!*\
   !*** ./redux/actions/types.js ***!
@@ -2299,6 +2319,17 @@ module.exports = require("redux-persist/lib/storage");
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
+
+/***/ }),
+
+/***/ "socket.io-client":
+/*!***********************************!*\
+  !*** external "socket.io-client" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("socket.io-client");
 
 /***/ }),
 
