@@ -1,0 +1,69 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "external \"react\"": 0,
+      "external \"styled-components\"": 1,
+      "external \"next/document\"": 2,
+      "external \"redux\"": 3,
+      "external \"@babel/runtime/regenerator\"": 4,
+      "external \"redux-thunk\"": 5,
+      "external \"redux-logger\"": 6,
+      "external \"antd\"": 7,
+      "external \"socket.io-client\"": 8,
+      "external \"react-redux\"": 9,
+      "multi ./pages/_document.js": 10,
+      "node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!pages/_document.js": 11,
+      "multi ./pages/index.js": 12,
+      "external \"redux-persist/integration/react\"": 13,
+      "external \"redux-persist\"": 14,
+      "external \"redux-persist/lib/storage\"": 15,
+      "multi node_modules/next/dist/pages/_app.js": 16,
+      "node_modules/next/dist/pages/_app.js": 17,
+      "external \"next/app\"": 18,
+      "multi node_modules/next/dist/pages/_error.js": 19,
+      "node_modules/next/dist/pages/_error.js": 20,
+      "external \"next/error\"": 21,
+      "node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!pages/index.js f30e65bcae589b7d1bb6e306781a336b": 22
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18,
+      "19": 19,
+      "20": 20,
+      "21": 21,
+      "22": 22
+    }
+  },
+  "chunks": {
+    "byName": {
+      "static/C5XTPWFujPbbImTPSYSXj/pages/_document.js": 0,
+      "static/C5XTPWFujPbbImTPSYSXj/pages/index.js": 1,
+      "static/C5XTPWFujPbbImTPSYSXj/pages/_app.js": 2,
+      "static/C5XTPWFujPbbImTPSYSXj/pages/_error.js": 3
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      2,
+      3
+    ]
+  }
+}

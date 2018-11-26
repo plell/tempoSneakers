@@ -1,9 +1,16 @@
 import openSocket from 'socket.io-client';
 const  socket = openSocket('http://localhost:8000');
 
-function subscribeToTimer(cb) {
-  socket.on('timer', timestamp => cb(null, timestamp));
-  socket.emit('subscribeToTimer', 1000);
-  console.log('started')
+function updateGameboard(callback) {
+  socket.on('updateGameboard', (slots) => {
+    console.log('updateGameboard')
+    callback(null, slots)
+  })
 }
-export { subscribeToTimer };
+
+function pushGameboard(slots){
+  console.log('pushGameboard', slots)
+  socket.emit('pushGameboard', slots);
+}
+
+export { updateGameboard, pushGameboard };

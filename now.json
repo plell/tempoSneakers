@@ -3,7 +3,7 @@
   "builds": [
     { "src": "package.json", 
       "use": "@now/next",
-      "config": { "maxLambdaSize": "50mb" }
+      "config": { "maxLambdaSize": "10mb" }
     }
   ]
 }

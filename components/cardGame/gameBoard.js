@@ -2,17 +2,24 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import CardSlot from './cardSlot'
 import CommandLine from './commandLine'
+import {updateGameboard, pushGameboard} from '../../redux/actions/api'
 
 export default class GameBoard extends Component {
 	constructor(){
 		super()
 		this.state={
 		slots:null
-
 		}
 	}
 
 	componentWillMount(){
+
+	//subscribe to websocket events here
+	updateGameboard((err, slots) => {
+		console.log(slots)
+		this.setState({ slots })
+	})
+
 	const slots = []
 
 	for (let h=0;h<3;h++){
@@ -113,6 +120,8 @@ export default class GameBoard extends Component {
 
 		updateHand(controlCard)
 		this.setState({slots})
+		// websocket
+		pushGameboard(slots)
 	}
 
 render(){

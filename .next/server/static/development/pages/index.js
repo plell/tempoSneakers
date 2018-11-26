@@ -106,7 +106,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _cardGame_gameWindow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cardGame/gameWindow */ "./components/cardGame/gameWindow.js");
-/* harmony import */ var _redux_actions_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/actions/api */ "./redux/actions/api.js");
 var _jsxFileName = "/Users/davidplell/code/tempoSneakers/components/app.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -132,29 +131,20 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var App =
 /*#__PURE__*/
 function (_Component) {
   _inherits(App, _Component);
 
   function App() {
-    var _this;
-
     _classCallCheck(this, App);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
-    _this.state = {
-      timestamp: 'nothing' // subscribeToTimer((err, timestamp) => this.setState({ timestamp }))
-
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
   }
 
   _createClass(App, [{
     key: "render",
     value: function render() {
-      console.log(this.state.timestamp);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: {
           height: '100vh',
@@ -165,13 +155,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 8
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cardGame_gameWindow__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, this.props, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 13
         },
         __self: this
       })));
@@ -1057,6 +1047,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _cardSlot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cardSlot */ "./components/cardGame/cardSlot.js");
 /* harmony import */ var _commandLine__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./commandLine */ "./components/cardGame/commandLine.js");
+/* harmony import */ var _redux_actions_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../redux/actions/api */ "./redux/actions/api.js");
 var _jsxFileName = "/Users/davidplell/code/tempoSneakers/components/cardGame/gameBoard.js";
 
 function _templateObject() {
@@ -1100,6 +1091,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1210,7 +1202,10 @@ function (_Component) {
 
       _this.setState({
         slots: slots
-      });
+      }); // websocket
+
+
+      Object(_redux_actions_api__WEBPACK_IMPORTED_MODULE_4__["pushGameboard"])(slots);
     });
 
     _this.state = {
@@ -1222,6 +1217,16 @@ function (_Component) {
   _createClass(GameBoard, [{
     key: "componentWillMount",
     value: function componentWillMount() {
+      var _this2 = this;
+
+      //subscribe to websocket events here
+      Object(_redux_actions_api__WEBPACK_IMPORTED_MODULE_4__["updateGameboard"])(function (err, slots) {
+        console.log(slots);
+
+        _this2.setState({
+          slots: slots
+        });
+      });
       var slots = [];
 
       for (var h = 0; h < 3; h++) {
@@ -1243,7 +1248,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$props2 = this.props,
           controlCard = _this$props2.controlCard,
@@ -1256,13 +1261,13 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cardSlot__WEBPACK_IMPORTED_MODULE_2__["default"], {
             key: Math.random(0, 20000),
             row: card.row,
-            updateSlots: _this2.updateSlots,
+            updateSlots: _this3.updateSlots,
             controlCard: controlCard,
             column: card.column,
             card: card.card,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 124
+              lineNumber: 133
             },
             __self: this
           });
@@ -1277,13 +1282,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135
+          lineNumber: 144
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Board, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 147
         },
         __self: this
       }, gameBoard), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_commandLine__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -1292,7 +1297,7 @@ function (_Component) {
         hoverCard: hoverCard,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 141
+          lineNumber: 150
         },
         __self: this
       }));
@@ -2070,23 +2075,28 @@ function (_Component) {
 /*!******************************!*\
   !*** ./redux/actions/api.js ***!
   \******************************/
-/*! exports provided: subscribeToTimer */
+/*! exports provided: updateGameboard, pushGameboard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "subscribeToTimer", function() { return subscribeToTimer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateGameboard", function() { return updateGameboard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pushGameboard", function() { return pushGameboard; });
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! socket.io-client */ "socket.io-client");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_0__);
 
 var socket = socket_io_client__WEBPACK_IMPORTED_MODULE_0___default()('http://localhost:8000');
 
-function subscribeToTimer(cb) {
-  socket.on('timer', function (timestamp) {
-    return cb(null, timestamp);
+function updateGameboard(callback) {
+  socket.on('updateGameboard', function (slots) {
+    console.log('updateGameboard');
+    callback(null, slots);
   });
-  socket.emit('subscribeToTimer', 1000);
-  console.log('started');
+}
+
+function pushGameboard(slots) {
+  console.log('pushGameboard', slots);
+  socket.emit('pushGameboard', slots);
 }
 
 
